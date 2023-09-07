@@ -8,8 +8,18 @@ file_name="./Clientes.csv"
 
 column_name = ["Email","Address","Avatar","Avg._Session_Length","Time_on_App","Time_on_Website","Length_of_Membership","Yearly_Amount_Spent"]
 
-df = pd.read_csv(file_name, sep=",", names=column_name)
-
+df = pd.read_csv(file_name, sep=",")
+nombres_a_cambiar = {
+    '':'ID',
+    'Email':'Email',
+    'Address':'Address',
+    'Avatar':'Avatar',
+    'Avg. Session Length':'Avg_Session_Length',
+    'Time on App':'Time_On_App',
+    'Time on Website':'Time_On_Website',
+    'Length of Membership':'Length_Of_Membership',
+    'Yearly Amount Spent':'Yearly_Amount_Spent'
+}
 
 profile = ProfileReport(df, title="Profiling Report", explorative=True,
                         html={"style":{"full_width": True}}, sort=None, progress_bar=False)
