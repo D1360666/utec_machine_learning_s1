@@ -1,5 +1,6 @@
 import numpy as np
 from sklearn.linear_model import LinearRegression
+from sklearn.metrics import precision_score, recall_score
 import matplotlib.pyplot as plt
 import pandas as pd
 from ydata_profiling import ProfileReport
@@ -40,9 +41,12 @@ print('TEST------------------------------')
 print(df_test)
 print(df_test.count)
 # Datos de ejemplo (variables independientes x y variables dependientes y)
-x = np.array([df_train])
-y = np.array([df_test])
+x = np.array([float(df_train['Time_on_Website'].values)])
+y = np.array([float(df_test['Time_on_Website'].values)])
 
+#Cómo encontrar la precisión con Python y Sklearn
+#precision_score(df_train['Time_on_App'], df_test['Time_on_App'])
+#recall_score(df_train['Time_on_App'].values, df_test['Time_on_App'].values)
 # Crear un objeto de regresión lineal
 modelo = LinearRegression()
 
